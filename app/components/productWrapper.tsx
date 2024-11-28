@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import url from "../production";
-import React, { useState } from "react";
+import React from "react";
 
 
 const ProductWrapper = () => {
-    const [products,setProducts] = useState([{},{},{},{}])
+    const products = [{},{},{},{}]
 
     const fillHeart = (e:React.MouseEvent<SVGPathElement>)=>{
         if (e.currentTarget.getAttribute("fill")==="#FF464F")
