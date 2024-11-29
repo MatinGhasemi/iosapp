@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="px-5 py-10">
+      <div className="layout">
         <Filter />
         <ProductWrapper />
       </div>

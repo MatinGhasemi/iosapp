@@ -13,3 +13,12 @@ body {
   #23343C 100%
   );
 }
+
+@layer components{
+  .layout{
+    @apply px-5 py-10 ;
+  }
+  .profile-avater{
+    @apply w-14 min-w-14 h-14 rounded-full flex justify-center items-center ;
+  }
+}
