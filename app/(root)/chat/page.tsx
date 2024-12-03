@@ -14,7 +14,7 @@ const Chat = () => {
 
     return (
         <div>
-            <div className="px-5 py-10">
+            <div className="layout">
                 <div className="flex justify-between gap-4">
                     <div className="w-full"><input type="text" className="bg-backgroundTransparent text-white px-4 h-14 w-full focus:outline-none rounded-xl" placeholder="search" /></div>
                     <div className="bg-lighBlue-light min-w-14 h-14 flex items-center justify-center rounded-xl">

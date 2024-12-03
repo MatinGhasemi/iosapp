@@ -16,9 +16,12 @@ body {
 
 @layer components{
   .layout{
-    @apply px-5 py-10 ;
+    @apply px-5 py-10 max-w-[440px] mx-auto;
   }
   .profile-avater{
     @apply w-14 min-w-14 h-14 rounded-full flex justify-center items-center ;
+  }
+  .flex-center{
+    @apply flex items-center justify-center ;
   }
 }

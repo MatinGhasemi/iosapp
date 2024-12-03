@@ -14,7 +14,8 @@ export default {
         red:{
           light:"#FF575F",
           normal:"#FF464F",
-          extreme:"#623A42"
+          extreme:"#623A42",
+          transparent:"#FF565E80"
         },
         orange:{
           normal:"#FF8A34",
@@ -24,12 +25,14 @@ export default {
         yellow:{
           normal:"#FFBC25",
           light:"#FFC542",
-          extreme:"#625B39"
+          extreme:"#625B39",
+          transparent:"#FFC54280"
         },
         lighBlue:{
           normal:"#25C685",
           light:"#3DD598",
-          extreme:"#286053"
+          extreme:"#286053",
+          transparent:"#3DD59880"
         },
         blue:{
           normal:"#005DF2",
