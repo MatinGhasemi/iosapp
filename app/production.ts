@@ -1,3 +1,3 @@
-const url = "/iosapp/";
+const url = "/";
 
 export default url ;

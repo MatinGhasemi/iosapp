@@ -18,6 +18,9 @@ body {
   .layout{
     @apply px-5 py-10 max-w-[440px] mx-auto;
   }
+  .w-layout{
+    @apply max-w-[440px] mx-auto;
+  }
   .profile-avater{
     @apply w-14 min-w-14 h-14 rounded-full flex justify-center items-center ;
   }

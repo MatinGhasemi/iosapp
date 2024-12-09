@@ -3,6 +3,7 @@ import ProductFilter from "../components/productFilter";
 import ProductWrapper from "../components/productWrapper";
 import Footer from "../components/footer";
 import Link from "next/link";
+import url from "../production";
 
 const HomePage = () => {
     return (<>
@@ -10,7 +11,7 @@ const HomePage = () => {
             <ProductFilter />
             <Link href={'/products?home'}>
             <div className="w-full h-[220px] bg-white rounded-[40px] relative mt-8">
-                <div className="absolute right-7 bottom-0"><Image className="h-[220px] w-full object-cover rounded-lg" src={'/woman_banner.png'} width={100} height={400} alt="woman_banner" /></div>
+                <div className="absolute right-7 bottom-0"><Image className="h-[220px] w-full object-cover rounded-lg" src={`${url}woman_banner.png`} width={100} height={400} alt="woman_banner" /></div>
                 <div className="px-6 pt-14">
                     <div className="">
                         <p className="text-xl font-bold">Join our</p>

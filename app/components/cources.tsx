@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IoPlaySharp } from "react-icons/io5";
 import { MdOutlineSettings } from "react-icons/md";
 import { TiCreditCard } from "react-icons/ti";
+import url from "../production";
 
 
 const Cources = () => {
@@ -38,7 +39,7 @@ const Cources = () => {
             <div className="mt-3 space-y-3">
                 <div className="bg-lighBlue-extreme rounded-3xl text-lighBlue-normal p-4">
                     <div className="flex justify-between items-center">
-                        <div className="w-16 h-16 bg-lighBlue-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`/course.png`} width={100} height={100} alt="bitmap10"/></div>
+                        <div className="w-16 h-16 bg-lighBlue-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`${url}course.png`} width={100} height={100} alt="bitmap10"/></div>
                         <div>
                             <p className="font-bold">Booked for 8 PM</p>
                             <p className="text-lighBlue-transparent">Booked for 8 PM</p>
@@ -52,7 +53,7 @@ const Cources = () => {
                 </div>
                 <div className="bg-yellow-extreme rounded-3xl text-yellow-normal p-4">
                     <div className="flex justify-between items-center">
-                        <div className="w-16 h-16 bg-yellow-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`/course1.png`} width={100} height={100} alt="bitmap10"/></div>
+                        <div className="w-16 h-16 bg-yellow-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`${url}course1.png`} width={100} height={100} alt="bitmap10"/></div>
                         <div>
                             <p className="font-bold">Booked for 8 PM</p>
                             <p className="text-yellow-transparent">Booked for 8 PM</p>
@@ -66,7 +67,7 @@ const Cources = () => {
                 </div>
                 <div className="bg-red-extreme rounded-3xl text-red-normal p-4">
                     <div className="flex justify-between items-center">
-                        <div className="w-16 h-16 bg-red-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`/course.png`} width={100} height={100} alt="bitmap10"/></div>
+                        <div className="w-16 h-16 bg-red-normal rounded-2xl flex-center"><Image className="w-10 h-10" src={`${url}course.png`} width={100} height={100} alt="bitmap10"/></div>
                         <div>
                             <p className="font-bold">Booked for 8 PM</p>
                             <p className="text-red-transparent">Booked for 8 PM</p>

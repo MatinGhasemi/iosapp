@@ -1,4 +1,5 @@
 import Footer from "@/app/components/footer";
+import url from "@/app/production";
 import Image from "next/image";
 import { LiaShippingFastSolid } from "react-icons/lia";
 
@@ -9,7 +10,7 @@ const Star = () => {
                 <p className="text-4xl">Cart</p>
                 <div className="mt-5 mb-10 space-y-4">
                     <div className="flex items-center gap-4">
-                        <div className="w-24 h-32 rounded-3xl bg-white overflow-hidden"><Image className="w-20 mx-auto mt-2" src={'/bitmap3.png'} width={100} height={200} alt="woman"/></div>
+                        <div className="w-24 h-32 rounded-3xl bg-white overflow-hidden"><Image className="w-20 mx-auto mt-2" src={`${url}bitmap3.png`} width={100} height={200} alt="woman"/></div>
                         <div className="flex-1 text-lg">
                             <p className="whitespace-nowrap">The North face 100</p>
                             <p>glacier 1/4 zip</p>
@@ -21,7 +22,7 @@ const Star = () => {
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="w-24 h-32 rounded-3xl bg-white overflow-hidden"><Image className="w-20 mx-auto mt-2" src={'/bitmap1.png'} width={100} height={200} alt="woman"/></div>
+                        <div className="w-24 h-32 rounded-3xl bg-white overflow-hidden"><Image className="w-20 mx-auto mt-2" src={`${url}bitmap1.png`} width={100} height={200} alt="woman"/></div>
                         <div className="flex-1 text-lg">
                             <p className="whitespace-nowrap">The North face 100</p>
                             <p>glacier 1/4 zip</p>
