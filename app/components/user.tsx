@@ -13,8 +13,7 @@ const User = () => {
         const cookies = document.cookie.split(";")
         cookies.forEach((i)=>{
             const items = i.split("=");
-            if (items[0]===" username"){
-                console.log(items[0])
+            if (items[0]===" username" || items[0] === "username"){
                 name = items[1]
             }
         })
