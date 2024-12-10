@@ -1,27 +1,18 @@
 'use client'
 
+import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { BiChevronRight } from "react-icons/bi";
-import { FaCheckCircle, FaHeart } from "react-icons/fa";
+
+import { FaCheckCircle, FaHeart, FaRegSadCry } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-import url from "../production";
 import { IoTrashOutline } from "react-icons/io5";
 import { PiPlus } from "react-icons/pi";
-import Link from "next/link";
-import { IoIosCloseCircle } from "react-icons/io";
+import { BiChevronRight } from "react-icons/bi";
 
-interface ImageType{
-    src:string
-}
-
-interface BuyedItem {
-    id:string,
-    payed:boolean,
-    date:string,
-    images:ImageType[]
-}
-
+import url from "../production";
+import products from '@/app/api/products.json';
+import randomDate from '@/app/api/randomDate.json';
 
 const UserOption = () => {
     const [active,setActive] = useState(false);
@@ -30,38 +21,50 @@ const UserOption = () => {
     const [favorite,setFavorite] = useState([
         {src:`${url}Bitmap0.png`},
         {src:`${url}Bitmap1.png`},
-        {src:`${url}Bitmap2.png`},
-        {src:`${url}Bitmap3.png`},
+        {src:`${url}Bitmap8.png`},
+        {src:`${url}Bitmap6.png`},
     ])
-    const [purchase,setPurchase] = useState<BuyedItem[]>([])
+    const [purchase,setPurchase] = useState<string[][]>([]);
 
     const allowMessage = ()=>{
         setActive(!active);
     }
 
     useEffect(()=>{
-        setPurchase([
-            {
-                id:"23",payed:false,date:"Monday, Januray 05, 2024",images:[
-                    {src:`${url}Bitmap1.png`},
-                    {src:`${url}Bitmap2.png`},
-                ]
-            },{
-                id:"22",payed:true,date:"Saturday, June 13, 2025",images:[
-                    {src:`${url}Bitmap3.png`},
-                    {src:`${url}woman_banner.png`},
-                    {src:`${url}Bitmap0.png`},
-                ]
-            }
-        ])
+        const payedString = localStorage.getItem("payment")
+        if (payedString){
+            const listPayment:string[] = []
+            const payed: { [key: string]:string }[] = JSON.parse(payedString)
+            
+            payed.forEach((p)=>{
+                const key = Object.keys(p)[0]
+                listPayment.push(p[key])
+            })
+            setPurchase([])
+            dynamicProduct(listPayment);
+        }
     },[])
 
+    const dynamicProduct = (listPayment:string[])=>{
+        listPayment.forEach((payment) => {
+            const onePurchase: string[] = [];
+          
+            const parsePayment: string[] = JSON.parse(payment);
+            parsePayment.forEach((id) => {
+              const srcProduct = products.find((item) => item.id === id);
+              if (srcProduct) {
+                onePurchase.push(srcProduct.img);
+              }
+            });
+            
+            setPurchase((prevPurchase) => [...prevPurchase, onePurchase]);
+          });          
+    }
 
     const deleteFavorite = (i:number)=>{
         const newList = favorite.filter((_,index)=> index !== i);
         setFavorite(newList);
     }
-
 
     return ( 
         <div className="mt-8 divide-y divide-grey-normal">
@@ -105,23 +108,24 @@ const UserOption = () => {
                     <p className="flex-1">Previous purchase</p>
                     <div className=""><BiChevronRight /></div>
                 </div>
-                <div className={`text-white gap-3 flex-wrap ${purchaseActive ? "max-h-96 mt-4" : "max-h-0"} overflow-hidden transition-all duration-300`}>
-                    {purchase.map((purch,i)=>{
+                <div className={`text-white gap-3 overflow-y-auto flex-wrap ${purchaseActive ? "max-h-96 mt-4" : "max-h-0"} overflow-hidden transition-all duration-300`}>
+                    {purchase.length > 0 ?
+                    purchase.map((purch,i)=>{
                         return (
                             <div className="mt-2 bg-background" key={i}>
                                 <div>
                                     <div className="px-2 py-1">
-                                        <div className="text-right">Payment ID : {purch.id}</div>
+                                        <div className="text-right">Payment ID : {i+2342}</div>
                                         <div className="flex items-center gap-2 justify-end">
-                                            <p className="text-grey-light">{purch.date}</p>
-                                            <div>{purch.payed ? <FaCheckCircle className="text-green-500"/> : <IoIosCloseCircle size={19} className="text-red-500"/>}</div>
+                                            <p className="text-grey-light">{randomDate[i]}</p>
+                                            <div><FaCheckCircle className="text-green-500"/></div>
                                         </div>
                                     </div>
-                                    <div className="flex gap-1 px-2 pb-3">
-                                        {purch.images.map((img,i)=>{
+                                    <div className="flex gap-1 px-2 pb-3 overflow-x-auto">
+                                        {purch.map((img,i)=>{
                                             return (
-                                                <div className="bg-white w-24 h-28 overflow-hidden" key={purch.id+i}>
-                                                    <Image width={200} height={200} src={img.src} alt={img.src+purch.id}/>
+                                                <div className="bg-white min-w-24 w-24 h-28 overflow-hidden" key={20+i}>
+                                                    <Image className="w-full min-h-28" width={200} height={200} src={url+img} alt={img}/>
                                                 </div>
                                             )
                                         })}
@@ -129,7 +133,18 @@ const UserOption = () => {
                                 </div>
                             </div>
                         )
-                    })}
+                    })
+                    :
+                    <div className="flex flex-col items-center px-6 gap-2">
+                        <FaRegSadCry className="text-lighBlue-light" size={30}/>
+                        <p>You Didn&apos;t Purchase Any thing</p>
+                        <div className="text-lighBlue-light w-full py-2 border border-lighBlue-light rounded-xl">
+                            <Link href={'/products?home'}>
+                                <p className="w-full text-center">Lets buy something</p>
+                            </Link>
+                        </div>
+                    </div>    
+                    }
                 </div>
             </div>
             <div className="text-white flex items-center gap-4 bg-grey-extreme p-4">

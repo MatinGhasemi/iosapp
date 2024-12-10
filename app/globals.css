@@ -28,3 +28,23 @@ body {
     @apply flex items-center justify-center ;
   }
 }
+
+
+@keyframes greyLoading {
+  0% {
+    background-color: lightgrey;
+  }
+  50% {
+    background-color: grey;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+
+.loading-background {
+  animation: greyLoading 3s infinite linear;
+}
+.loading-background-fast {
+  animation: greyLoading 1s infinite linear;
+}

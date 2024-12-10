@@ -11,11 +11,13 @@ import { IoChatboxEllipses } from "react-icons/io5";
 const Footer = () => {
     
     useEffect(()=>{
-        const route:string = (window.location.href).split("?")[1].split("=")[0]
+        let route:string = (window.location.href).split("?")[1]
         if (route=== undefined || null || "")
             document.querySelector(`[name=home]`)?.classList.add("text-lighBlue-light")
-        else
+        else{
+            route = route.split("=")[0]
             document.querySelector(`[name=${route}]`)?.classList.add("text-lighBlue-light")
+        }
     },[])
 
     return ( 

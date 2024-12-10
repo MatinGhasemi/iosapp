@@ -6,11 +6,11 @@ const Chat = () => {
         {name:"Amoo Matin",Avatar:"👨🏻",message:"Hello There !",time:"4:30 PM",seen:false,notSeen:2,bg:"bg-red-light"},
         {name:"Alice Smith",Avatar:"👩🏾",message:"Great. I will have a look",time:"7:30 PM",seen:true,notSeen:0,bg:"bg-yellow-light"},
         {name:"Alireze",Avatar:"👴🏽",message:"My Brother do you have some money ?",time:"7:00 AM",seen:true,notSeen:0,bg:"bg-blue-light"},
-        {name:"Mahya",Avatar:"👩🏻",message:"Thats realy awesome !",time:"10:30 AM",seen:false,notSeen:3,bg:"bg-perple-light"},
+        {name:"Kimia",Avatar:"👩🏻",message:"Thats realy awesome !",time:"10:30 AM",seen:false,notSeen:3,bg:"bg-perple-light"},
         {name:"Amoo Matin",Avatar:"👨🏻",message:"Hello There !",time:"4:30 PM",seen:false,notSeen:2,bg:"bg-red-light"},
         {name:"Alice Smith",Avatar:"👩🏾",message:"Great. I will have a look",time:"7:30 PM",seen:true,notSeen:0,bg:"bg-yellow-light"},
         {name:"Alireze",Avatar:"👴🏽",message:"My Brother do you have some money ?",time:"7:00 AM",seen:true,notSeen:0,bg:"bg-blue-light"},
-        {name:"Mahya",Avatar:"👩🏻",message:"Thats realy awesome !",time:"10:30 AM",seen:false,notSeen:3,bg:"bg-perple-light"},
+        {name:"Kimia",Avatar:"👩🏻",message:"Thats realy awesome !",time:"10:30 AM",seen:false,notSeen:3,bg:"bg-perple-light"},
     ]
 
     return (
