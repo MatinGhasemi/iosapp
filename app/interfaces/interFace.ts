@@ -12,8 +12,5 @@ export interface CartItem{
 }
 
 export interface Props{
-    params:{
-
-        id:string
-    }
+    id:string
 }

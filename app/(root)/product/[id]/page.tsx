@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,20 +8,27 @@ import url from '@/app/production';
 import Footer from '@/app/components/footer';
 import products from '@/app/api/products.json';
 import AddToCart from '@/app/components/addToCart';
-import { ProductType, Props } from '@/app/interfaces/interFace';
-import ClientSideSetup from '@/app/components/clientSideSetup';
+import { ProductType } from '@/app/interfaces/interFace';
 import ProductDetailDetail from '@/app/components/productDetailDetail'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 
-const ProductDetail = async(params:Props) => {
-    const id = await params.params.id
+const ProductDetail = () => {
+    const router = useRouter();
+    const [product,setProduct] = useState<ProductType>();
     
-    const product:ProductType|undefined = products.find(item=>item.id===id);
+    useEffect(()=>{
+        const href = window.location.href
+        const id = href.split("/product/")[1].split("?")[0]
+        if (+id > products.length || Number.isNaN(+id)){
+            router.push("/?home")
+        }
+        setProduct(products.find(item=>item.id===id))
+    },[])
 
     return ( 
         <div className='mb-16'>
-            <ClientSideSetup id={id} len={products.length} />
             <div className='layout'>
                 <Link href='/products?home' className='flex gap-2 items-center text-white mb-3'>
                     <FaArrowLeftLong size={18} />
