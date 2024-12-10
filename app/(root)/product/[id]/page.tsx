@@ -55,6 +55,10 @@ const ProductDetail = async ({params}:PageProps) => {
         </div>
      );
 }
- 
+
+export async function generateStaticParams(){
+    return products.map(product => ({ id: product.id.toString() }));
+}
+
 
 export default ProductDetail;
